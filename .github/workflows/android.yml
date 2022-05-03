@@ -1,4 +1,4 @@
-name: Android CI
+name: Android Build
 
 on:
   workflow_dispatch:
@@ -20,7 +20,16 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+    - name: Clean Gradle
+      run: ./gradlew clean
     - name: Build with Gradle
       run: ./gradlew build
     - name: Assemble with Gradle
       run: ./gradlew assemble
+    - uses: actions/upload-artifact@v2
+      name: Upload AAR Library
+      with:
+        name: Internal App Android Build APK
+        path: |
+          GPlay_Billing/build/outputs/aar/GPlay_Billing-release.aar
+          GPlay_Billing/build/outputs/aar/GPlay_Billing-debug.aar
