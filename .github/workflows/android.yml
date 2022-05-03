@@ -29,7 +29,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       name: Upload AAR Library
       with:
-        name: Internal App Android Build APK
+        name: Android Lib AAR
         path: |
           GPlay_Billing/build/outputs/aar/GPlay_Billing-release.aar
           GPlay_Billing/build/outputs/aar/GPlay_Billing-debug.aar
